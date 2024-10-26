@@ -1,0 +1,256 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    
+}
+
+.row {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.scheme {
+    color: rgb(255, 0, 0);
+}
+
+
+
+    .click {
+        transition: all 300ms ease;
+    }
+
+    .click:hover {
+    cursor: pointer;
+    scale: 1.05;
+    }
+
+    .click:active {
+        filter: brightness(.8);
+        scale: .9;
+    }
+
+    h1{
+        font-size: 46px;
+        margin-top: 24px;
+ 
+    }
+    
+
+
+
+    /* NAV */
+
+nav {
+    background-color: rgb(255, 2, 2);
+}
+
+.nav__wrapper {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.nav__logo {
+    width: 80px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 30px;
+}
+
+.nav__links {
+    display: flex;
+    align-items: center;
+    
+}
+
+.nav__link {
+    margin-right: 32px;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.nav__contactbtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 100px;
+    max-height: 32px;
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid black;
+    border-radius: 200px;
+    color: rgb(8, 8, 8);
+    cursor: pointer;
+    }
+
+.nav__search {
+    display: flex;
+    justify-content: center;
+
+}
+.nav__search--wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;   
+    width:700px;
+}
+
+.nav__search--title {
+    color: black;
+}
+
+.nav__search--input {
+
+    width: 100%;
+    height: 100%;
+    max-width: 700px;
+    max-height: 100px;
+    padding: 12px 42px 12px 12px;
+    border-radius: 20px;
+    border: 2.5px solid black;
+    margin: 32px;
+
+}
+
+.fa-magnifying-glass {
+    position: absolute;
+    right: 15px;
+    bottom: 45px;
+}
+
+
+/* HEADER  ------------------------------------------------------------------------------------------*/
+
+
+.titlecon__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.titlecon__title {
+font-size: 24px;
+}
+
+
+.slider__large--container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.slider-container {
+    position: relative;
+    width: 300px;
+    margin: 20px;
+}
+
+.range-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    background: transparent;
+    position: absolute;
+    pointer-events: none;
+}
+
+.range-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #000;
+    border-radius: 50%;
+    pointer-events: all;
+    cursor: pointer;
+    position: relative;
+}
+
+.slider-track {
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 5px;
+    z-index: -1;
+}
+
+.selected-range {
+    background-color: #00bfff;
+    z-index: -1;
+}
+
+/* SELECTION CARDS -------------------------------------------------------------- */
+
+.selections {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.selection__card {
+    display: flex;
+    flex-direction: column;
+    width: 33.33%;
+    height: 100%;
+    max-height: 1000px;
+    max-width: 350px;
+    border-radius: 14px;
+    box-shadow: 0px 0px 20px black;
+    overflow: hidden;
+    margin: 0 12px 80px 12px;
+}
+
+
+
+.selection__card--img{
+    width: 100%;
+}
+
+.selection__card--title{
+    margin: 20px 0 0px 0;
+    font-size: 28px;
+}
+
+.selection__card--info {
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.selection__card--desc {
+    padding: 0px 16px 16px 16px ;
+}
+
+.selection__card--star-rating {
+    color: gold;
+    margin-bottom: 8px;
+    text-shadow: 0px 2px 2px black;
+    display: flex;
+}
+
+.fa-star, .fa-star-half-stroke {
+    font-size: 32px;
+    margin: 0 2px 0 2px;
+}
+
+.info__text {
+    margin: 8px 0 8px 0;
+}

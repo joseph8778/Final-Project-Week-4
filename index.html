@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://kit.fontawesome.com/e67973d4c2.js" crossorigin="anonymous"></script>
+    <script src="/app.js" defer></script> 
+    <!-- Javascript -->
+</head>
+<body>
+    <nav>
+            <div class="row">
+                <div class="nav__wrapper">
+                    <div class="nav__logowrapper">
+                        <img src="./Assets/CinemaLogo-removebg-preview.png" alt="" class="nav__logo">
+                    </div>
+                    <div class="nav__links">
+                        <a href="" class="nav__link">Home</a>
+                        <a href="" class="nav__link">Find Your Movie</a>
+                        <button class="click nav__contactbtn">Contact</button>
+                    </div>
+                   
+                </div>
+                <div class="nav__search">
+                    <div class="nav__search--wrapper">
+                <h1 class="nav__search--title">Browse our movies!</h1>
+
+            <form id="searchForm" >
+                <input class="nav__search--input" type="text" placeholder="e.g. `Jaws 2`" required>
+
+                <button type="submit">
+                <i class="fa-solid fa-magnifying-glass click"></i></button>
+            </form>
+
+            </div>
+            </div>
+            </div>
+    </nav>
+    <div class="header">
+        <div class="container">
+            <div class="row">
+
+             <div class="titlecon__wrapper">
+                    <div class="titlecon__title">
+                    <h2>Search results for: <b class="scheme" id="titlecon__input"></b></h2>
+                    </div>
+                <div class="slider__large--container">
+                    <div class="slider-container">
+                        <input type="range" id="minYear" min="1940" max="2024" value="1940" class="range-slider">
+                        <input type="range" id="maxYear" min="1940" max="2024" value="2024" class="range-slider">
+                        <div class="slider-track"></div>
+                    </div>
+                    <p>Selected Years: <span id="yearRange">1940 - 2024</span></p>
+                </div>
+            </div>
+            
+            <div class="selections">
+                
+                
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
