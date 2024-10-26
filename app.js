@@ -49,12 +49,15 @@ async function displayResults(searchData) {
         return {
             ...movieElem,
             Genre: idData.Genre,
-            Rated: idData.Rated
+            Rated: idData.Rated,
+            StarRating: idData.imdbRating
         };
     });
 
     // Wait for all movie detail fetches to complete
     const detailedMovies = await Promise.all(movieDetailsPromises);
+
+    console.log(detailedMovies)
 
     // Build the HTML for the movie cards
     const resultsHtml = detailedMovies.map(movie => {
@@ -69,8 +72,7 @@ async function displayResults(searchData) {
                         <li class="info__text selection__rated">Rated: ${movie.Rated}</li>
                     </ul>
                     <div class="selection__card--star-rating">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star-half-stroke"></i>
+                      ${showRating(movie.StarRating)}
                     </div>
                 </div>
             </div>`;
@@ -82,36 +84,13 @@ async function displayResults(searchData) {
 
 
 
+function showRating(rating) {
+const parsedRating = parseFloat(rating) || 0;
 
-{/* <div class="selection__card click">
-                    <img src="" alt="" class="selection__card--img">
-                    
-                    <div class="selection__card--desc">
-                        
-                        <h2 class="selection__card--title">Title</h2>
-                        <ul class="selection__card--info">
-                            <li class="info__text selection__year">Year:</li>
-                            <li class="info__text selection__genre">Genre:</li>
-                            <li class="info__text selection__rated">Rated:</li>
-                        </ul>
-                        <div class="selection__card--star-rating">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star-half-stroke"></i>
-                        </div>
-                    </div>
-                </div> */}
-
-
-
-
-
-
-
-
-
-
-
-
+    const stars = `<i class="fa-solid fa-star"></i>`.repeat(Math.floor(parsedRating/2))
+    const halfStar = parsedRating % 2 >= 1 ? '<i class="fa-solid fa-star-half-stroke"></i>' : ''
+    return stars + halfStar
+}
 
 
 
