@@ -8,12 +8,15 @@
     <script src="https://kit.fontawesome.com/e67973d4c2.js" crossorigin="anonymous"></script>
     <script src="/app.js" defer></script> 
     <!-- Javascript -->
+  
+     
+        
 </head>
 <body>
     <nav>
             <div class="row">
                 <div class="nav__wrapper">
-                    <div class="nav__logowrapper">
+                    <div class="nav__logowrapper" onclick="cardPopUp()">
                         <img src="./Assets/CinemaLogo-removebg-preview.png" alt="" class="nav__logo">
                     </div>
                     <div class="nav__links">
@@ -28,10 +31,12 @@
                 <h1 class="nav__search--title">Browse our movies!</h1>
 
             <form id="searchForm" >
-                <input class="nav__search--input" type="text" placeholder="e.g. `Jaws 2`" required>
+                <div class="nav__search--input-container">
+                <input class="nav__search--input" type="text" placeholder="e.g. `Jaws`" required>
 
-                <button type="submit">
+                <button type="submit" id="search__button">
                 <i class="fa-solid fa-magnifying-glass click"></i></button>
+            </div>
             </form>
 
             </div>
@@ -44,26 +49,46 @@
 
              <div class="titlecon__wrapper">
                     <div class="titlecon__title">
-                    <h2>Search results for: <b class="scheme" id="titlecon__input"></b></h2>
+                    <h2>Search results for: <b class="scheme" id="titlecon__input">Jaws</b></h2>
                     </div>
                 <div class="slider__large--container">
                     <div class="slider-container">
-                        <input type="range" id="minYear" min="1940" max="2024" value="1940" class="range-slider">
-                        <input type="range" id="maxYear" min="1940" max="2024" value="2024" class="range-slider">
+                        <input type="range" id="minYear" min="1888" max="2024" value="1888" class="range-slider">
+                        <input type="range" id="maxYear" min="1888" max="2024" value="2024" class="range-slider">
                         <div class="slider-track"></div>
                     </div>
-                    <p>Selected Years: <span id="yearRange">1940 - 2024</span></p>
+                    <pv class="selected__years">Selected Years: <span id="yearRange">1888 - 2024</span></p>
                 </div>
             </div>
+
             
             <div class="selections">
+                <div class="loading__spinner">
+                <i class="fa-solid fa-spinner selections__loading--spinner"></i>
+                <h1 class="selections__error-text"></h1>
+            </div>
                 
-                
+                <div class="movie__results">
 
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+<div id="moviePopup" class="popup hidden">
+    <div class="popup__content">
+        <span id="popupClose" class="popup__close click">&times;</span>
+        <img id="popupPoster" src="" alt="Movie Poster" class="popup__poster">
+        <h2 id="popupTitle" class="popup__title"></h2>
+        <p id="popupYear" class="popup__text"></p>
+        <p id="popupGenre" class="popup__text"></p>
+        <p id="popupRated" class="popup__text"></p>
+        <p id="popupPlot" class="popup__text"></p>
+        <div id="popupRating" class="popup__rating"></div>
+    </div>
+</div>
+
 
 </body>
 </html>
