@@ -14,7 +14,7 @@
 
 .row {
     width: 100%;
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 16px;
 }
@@ -48,6 +48,34 @@ li {
         filter: brightness(.8);
         scale: .9;
     }
+
+    .link__hover-effect {
+        position: relative;
+    }
+    
+    .link__hover-effect:after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    height: 3px;
+    width: 0;
+    right: 0;
+    background-color: white;
+    transition: all 300ms ease;
+    }
+    
+    .link__hover-effect--white::after {
+        background-color: white;
+    }
+    
+    .link__hover-effect--black:after {
+        background-color: black;
+    }
+    
+    .link__hover-effect:hover::after {
+        left: 0;
+        width: 100%;
+    }
     
 
 
@@ -55,7 +83,7 @@ li {
     /* NAV */
 
 nav {
-    background-color: #e10101;
+    background-color: #000000;
     position: relative;
     max-height: 300px;
 }
@@ -89,17 +117,12 @@ nav {
 }
 
 .nav__contactbtn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-width: 100px;
-    max-height: 32px;
-    padding: 20px;
-    background-color: rgb(255, 255, 255);
-    border: 1px solid black;
-    border-radius: 200px;
-    color: rgb(8, 8, 8);
+    background-color: #ff0000;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 20px;
     cursor: pointer;
     }
 
@@ -126,27 +149,31 @@ nav {
 }
 
 .nav__search--title {
-    color: black;
-    font-size: 28px;
+    color: #ff0000;
+    font-size: 22px;
+    margin-bottom: 14px;
+    margin-top: px;
+    text-align: center;
+
 }
 
 .nav__search--input-container {
     position: relative;
     width: 100%;
-    max-width: 1000px; /* Ensuring it fits well */
+    max-width: 500px;
+    margin: 0 auto;
+    margin-bottom: 24px;
 }
 
 .nav__search--input {
-
     width: 100%;
-    height: 40px;
-    padding: 12px 42px 12px 12px;
+    padding: 12px 48px 12px 12px;
     border-radius: 20px;
-    border: 2.5px solid black;
-    margin: 16px 16px 16px 2px;
-    outline: black;
-
+    border: 2px solid #ff0000;
+    background-color: #333;
+    color: #E0E0E0;
 }
+
 
 
 #search__button {
@@ -161,8 +188,8 @@ nav {
 }
 
 #search__button i {
-    color: black; /* Icon color */
-    font-size: 18px; /* Adjust icon size */
+    color: #ffffff;
+    font-size: 18px;
 }
 
 .fa-magnifying-glass {
@@ -248,19 +275,19 @@ color: white;
     display: flex;
     flex-wrap: wrap;
     position: relative;
+    justify-content:space-evenly;
 }
 
 .selection__card {
     display: flex;
     flex-direction: column;
     background-color: white;
-    border: solid 3px red;
     width: 33.33%;
     height: 100%;
     height: 550px;
     width: 290px;
     border-radius: 14px;
-    box-shadow: 0px 0px 20px 0.1px rgb(255, 255, 255);
+    box-shadow: 0px 0px 8px 0.1px rgb(255, 255, 255);
     overflow: hidden;
     margin: 0 12px 100px 12px;
 }
@@ -362,11 +389,23 @@ animation: rotate 600ms infinite ease
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color:none;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 1000;
+    animation: slideInFromBottom .5s ease forwards;
+}
+
+@keyframes slideInFromBottom {
+    0% {
+        transform: translateY(100%); /* Start below the viewport */
+        opacity: 0; /* Start invisible */
+    }
+    100% {
+        transform: translateY(0); /* End at original position */
+        opacity: 1; /* End fully visible */
+    }
 }
 
 .popup__content {
