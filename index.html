@@ -16,9 +16,9 @@
     <nav>
             <div class="row">
                 <div class="nav__wrapper">
-                    <div class="nav__logowrapper" onclick="cardPopUp()">
-                        <img src="./Assets/CinemaLogo-removebg-preview.png" alt="" class="nav__logo">
-                    </div>
+                    <a href="#" class="nav__logowrapper click">
+                        <img src="./Assets/Cinema Library Logo TransP..png" alt="" class="nav__logo">
+                    </a>
                     <div class="nav__links">
                         <a href="" class="nav__link link__hover-effect">Home</a>
                         <a href="" class="nav__link link__hover-effect">Find Your Movie</a>
@@ -77,9 +77,10 @@
 </div>
 
 <div id="moviePopup" class="popup hidden">
+    <div class="popup__content poster__modal">
+    <img id="popupPoster" src="" alt="Movie Poster" class="popup__poster"></div>
     <div class="popup__content">
         <span id="popupClose" class="popup__close click">&times;</span>
-        <img id="popupPoster" src="" alt="Movie Poster" class="popup__poster">
         <h2 id="popupTitle" class="popup__title"></h2>
         <p id="popupYear" class="popup__text"></p>
         <p id="popupGenre" class="popup__text"></p>
