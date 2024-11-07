@@ -3,6 +3,7 @@ const apiKey = 'c281bc86'
 const selectionsWrapper = document.querySelector(".selections")
 const movieResults = document.querySelector('.movie__results')
 const errorText =  document.querySelector('.selections__error-text')
+const filmStrip = document.querySelector('.loading__strip--wrapper')
 
 //DEFAULT MOVIE CARDS---------------------------
 window.onload = function() {
@@ -16,6 +17,8 @@ async function fetchMovieInfo(userInput) {
     movieResults.textContent = '';
     errorText.innerText = ''
     selectionsWrapper.classList += ' selections__loading'
+    filmStrip.style.display = 'block'
+  
 try {
     let searchResponse = await fetch(`http://www.omdbapi.com/?apikey=${apiKey}&s=${encodeURIComponent(userInput)}`)
 
@@ -39,6 +42,7 @@ setTimeout(() => {
     console.error('There was an error fetching the movie data:', error.message)
     setTimeout(() => {
         selectionsWrapper.classList.remove('selections__loading') 
+          filmStrip.style.display = 'none'
         errorText.innerText = error.message
     }, 300);
     
@@ -109,6 +113,7 @@ async function displayResults(searchData) {
     titleLimit();
 
     selectionsWrapper.classList.remove('selections__loading')
+     filmStrip.style.display = 'none'
 
 filterMoviesByYear();
 }
@@ -163,9 +168,7 @@ function openPopUp(movie) {
     popupPoster.src = movie.Poster !== 'N/A' ? movie.Poster : './Assets/Movie.png';
     popupPlot.innerText = movie.Plot ? `Plot: ${movie.Plot}` : 'No plot available.';
     popupRating.innerHTML = showRating(movie.imdbRating);
-
-    movieResults.classList.remove('hide')
-    selectionsWrapper.classList.remove('selections__loading')
+    filmStrip.style.display = 'none'
     popup.classList.remove('hidden'); // Show the pop-up
     popup.classList.remove('fade'); // Show the pop-up
 }
@@ -188,9 +191,7 @@ popup.addEventListener('click', (event) => {
 });
 
 function cardPopUp(imdbID) {
-        movieResults.classList.add('hide')
-    errorText.innerText = ''
-    selectionsWrapper.classList += ' selections__loading'
+          filmStrip.style.display = 'block'
         fetch(`https://www.omdbapi.com/?apikey=${apiKey}&i=${imdbID}`)
         .then(response => response.json())
         .then(movie => openPopUp(movie))
