@@ -151,9 +151,11 @@ const popupRated = document.getElementById('popupRated');
 const popupPoster = document.getElementById('popupPoster');
 const popupPlot = document.getElementById('popupPlot');
 const popupRating = document.getElementById('popupRating');
+const popupContent = document.querySelector('.popup__content')
 
 
 function openPopUp(movie) {
+    
     popupTitle.innerText = movie.Title;
     popupYear.innerText = `Year: ${movie.Year}`;
     popupGenre.innerText = `Genre: ${movie.Genre}`;
@@ -162,15 +164,33 @@ function openPopUp(movie) {
     popupPlot.innerText = movie.Plot ? `Plot: ${movie.Plot}` : 'No plot available.';
     popupRating.innerHTML = showRating(movie.imdbRating);
 
+    movieResults.classList.remove('hide')
+    selectionsWrapper.classList.remove('selections__loading')
     popup.classList.remove('hidden'); // Show the pop-up
+    popup.classList.remove('fade'); // Show the pop-up
 }
 
-popupClose.addEventListener('click', () => popup.classList.add('hidden'));
+popupClose.addEventListener('click', () => {
+    popup.classList.add('fade')
+    setTimeout(() => {
+        
+        popup.classList.add('hidden')
+    }, 500);
+});
+
 popup.addEventListener('click', (event) => {
-    if (event.target === popup) popup.classList.add('hidden'); // Close if clicking outside content
+    if (event.target === popup) {
+        popup.classList.add('fade')
+        setTimeout(() => {
+            popup.classList.add('hidden')
+        }, 500);
+    }
 });
 
 function cardPopUp(imdbID) {
+        movieResults.classList.add('hide')
+    errorText.innerText = ''
+    selectionsWrapper.classList += ' selections__loading'
         fetch(`https://www.omdbapi.com/?apikey=${apiKey}&i=${imdbID}`)
         .then(response => response.json())
         .then(movie => openPopUp(movie))
