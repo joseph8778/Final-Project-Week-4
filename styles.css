@@ -543,8 +543,8 @@ color: black;
     flex-direction: column-reverse;
 }
 .popup__content, .poster__modal{
-    width: 300px;
-    height: 50%;
+    width: 275px;
+    height: 45%;
     border-radius: 0;
 }
 .popup__text {
