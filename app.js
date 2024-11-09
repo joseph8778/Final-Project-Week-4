@@ -17,10 +17,9 @@ async function fetchMovieInfo(userInput) {
     movieResults.textContent = '';
     errorText.innerText = ''
     selectionsWrapper.classList += ' selections__loading'
-    filmStrip.style.display = 'block'
   
 try {
-    let searchResponse = await fetch(`http://www.omdbapi.com/?apikey=${apiKey}&s=${encodeURIComponent(userInput)}`)
+    let searchResponse = await fetch(`https://www.omdbapi.com/?apikey=${apiKey}&s=${encodeURIComponent(userInput)}`)
 
     if(!searchResponse.ok) {
         throw new Error(`HTTP error! Status: ${searchResponse.status}`)

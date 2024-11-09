@@ -209,12 +209,11 @@ margin-top: 0px;
 .loading__strip--wrapper {
     display: none;
     overflow: hidden;
-    
 }
 
 .film__stripimg {
     width: 10%;
-    height: 20%;
+    height: 28px;
 margin: 0 -2.5px 0 -2.5px;
 animation: moveRight 1s linear infinite;
 }
@@ -442,7 +441,7 @@ color: black;
     max-width: 380px;
     height: 480px;
     background-color: #252323;
-    padding: 48px 24px 24px 24px;
+    padding: 24px 24px 24px 24px;
     border-radius: 10px;
     text-align: center;
     box-shadow: 0px 0px 6px 0.1px rgb(0, 0, 0);
@@ -540,7 +539,31 @@ color: black;
 }
 
 @media(max-width: 780px) {
-    
+#moviePopup {
+    flex-direction: column-reverse;
+}
+.popup__content, .poster__modal{
+    width: 300px;
+    height: 50%;
+    border-radius: 0;
+}
+.popup__text {
+    font-size: 12px;
+}
+
+#popupPlot {
+    margin-top: 16px;
+}
+
+.popup__rating{
+    display: none;
+}
+
+.popup__title {
+    max-width: 90%;
+}
+
+   
 
 h2 {
     font-size: 18px;
@@ -559,7 +582,7 @@ h2 {
 max-width: 400px;
 }
 .nav__logo {
-    width: 90px;
+    width: 120px;
 }
 }
 
